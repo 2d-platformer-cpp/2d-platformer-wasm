@@ -1,0 +1,102 @@
+# Level Data - 2D Platformer Game
+# level2 - Burning Introduction
+# Teaches: Lava hazard avoidance, jumping over hazards
+
+levelWidth=12000.000000
+isLeftWallClamped=false
+isRightWallClamped=false
+
+# Background layers
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|4|0|0.100
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|5|4|0.300
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|6|7|0.600
+
+# ====================
+# Section 1: Safe intro (x: 0 - 1500) - teach the player how it works before lava
+# ====================
+ENTITY:StaticObject|0.000000|680.000000|1500.000000|48.000000|2|10|solid
+ENTITY:StaticObject|100.000000|560.000000|300.000000|32.000000|1|10|solid
+ENTITY:StaticObject|700.000000|500.000000|300.000000|32.000000|1|10|solid
+
+# ====================
+# Section 2: First lava gap (x: 1500 - 2200) - clearly telegraphed with wide platforms
+# ====================
+ENTITY:StaticObject|1500.000000|680.000000|500.000000|48.000000|2|10|solid
+ENTITY:StaticObject|2200.000000|680.000000|400.000000|48.000000|2|10|solid
+# Lava in the gap
+ENTITY:StaticObject|2000.000000|680.000000|220.000000|40.000000|7|10|hazard
+# Bridge platform over lava
+ENTITY:StaticObject|1800.000000|560.000000|300.000000|32.000000|1|10|solid
+
+# ====================
+# Section 3: Lava corridor (x: 2600 - 4500)
+# ====================
+ENTITY:StaticObject|2600.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|3200.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|3800.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|4400.000000|680.000000|400.000000|48.000000|2|10|solid
+# Lava in gaps
+ENTITY:StaticObject|2980.000000|680.000000|240.000000|40.000000|7|10|hazard
+ENTITY:StaticObject|3580.000000|680.000000|240.000000|40.000000|7|10|hazard
+ENTITY:StaticObject|4180.000000|680.000000|240.000000|40.000000|7|10|hazard
+# Platforms bridging gaps
+ENTITY:StaticObject|2900.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3100.000000|480.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3500.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3700.000000|480.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|4100.000000|560.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 4: Lava crossing (x: 4800 - 7000) - floating platforms over lava
+# ====================
+ENTITY:StaticObject|4800.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|5200.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5500.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5800.000000|520.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6100.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6400.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6700.000000|560.000000|300.000000|48.000000|2|10|solid
+# Lava below platforms
+ENTITY:StaticObject|5000.000000|680.000000|2000.000000|40.000000|7|10|hazard
+
+# ====================
+# Section 5: Mixed terrain (x: 7000 - 9000)
+# ====================
+ENTITY:StaticObject|7000.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|7400.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7700.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|8200.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|8500.000000|680.000000|400.000000|48.000000|2|10|solid
+# Lava gaps
+ENTITY:StaticObject|7280.000000|680.000000|140.000000|40.000000|7|10|hazard
+ENTITY:StaticObject|8080.000000|680.000000|140.000000|40.000000|7|10|hazard
+
+# ====================
+# Section 6: Narrowing platforms (x: 9000 - 10500)
+# ====================
+ENTITY:StaticObject|8900.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|9200.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9440.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9660.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9860.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10060.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10260.000000|560.000000|200.000000|48.000000|2|10|solid
+# Lava below
+ENTITY:StaticObject|9100.000000|680.000000|1500.000000|40.000000|7|10|hazard
+
+# ====================
+# Section 7: Final stretch (x: 10500 - 12000)
+# ====================
+ENTITY:StaticObject|10460.000000|680.000000|500.000000|48.000000|2|10|solid
+ENTITY:StaticObject|11000.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|11300.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|11700.000000|560.000000|300.000000|48.000000|2|10|solid
+
+# Level exit to level3
+ENTITY:StaticObject|12000.000000|0.000000|60.000000|720.000000|1|10|exit_east|assets/levels/level3.level|1.000000
+
+# West exit back to level1
+ENTITY:StaticObject|-60.000000|0.000000|60.000000|720.000000|1|10|exit_west|assets/levels/level1.level|1.000000
+
+# Player spawn
+ENTITY:Player|50.000000|620.000000|48.000000|60.000000|0|50|500.000000

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>2D Platformer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;font-family:sans-serif}
+#game-container{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
+canvas{display:block}
+#loading{position:fixed;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#111;color:#fff;font-size:24px;z-index:1000;transition:opacity .5s}
+#loading.hidden{opacity:0;pointer-events:none}
+.spinner{width:48px;height:48px;border:4px solid #333;border-top-color:#4a9;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+#error{display:none;position:fixed;top:0;left:0;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;background:#111;color:#f44;font-size:18px;z-index:2000;padding:40px;text-align:center}
+#error.visible{display:flex}
+#error h2{font-size:28px;margin-bottom:16px}
+</style>
+</head>
+<body>
+<div id="loading"><div class="spinner"></div><div>Loading 2D Platformer...</div></div>
+<div id="error"><h2>Failed to load game</h2><p id="error-msg">An unexpected error occurred.</p></div>
+<div id="game-container">{{{ SCRIPT }}}</div>
+<script>
+Module = typeof Module !== 'undefined' ? Module : {};
+Module.postRun = Module.postRun || [];
+Module.postRun.push(function(){
+  document.getElementById('loading').classList.add('hidden');
+});
+Module.onAbort = function(msg) {
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('error-msg').textContent = msg || 'Unknown error';
+  document.getElementById('error').classList.add('visible');
+};
+window.onerror = function(msg) {
+  document.getElementById('loading').classList.add('hidden');
+  document.getElementById('error-msg').textContent = msg || 'Unknown error';
+  document.getElementById('error').classList.add('visible');
+};
+</script>
+</body>
+</html>

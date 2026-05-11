@@ -1,0 +1,119 @@
+# Level Data - 2D Platformer Game
+# level5 - Speed Required
+# Teaches: Running starts, momentum management, wider gaps
+# Max gap: 380px (near physics limit from standstill)
+
+levelWidth=18000.000000
+isLeftWallClamped=false
+isRightWallClamped=false
+
+# Background layers
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|4|0|0.100
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|5|4|0.300
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|6|7|0.600
+
+# ====================
+# Section 1: Running start zone (x: 0 - 2000) - long flat to build speed
+# ====================
+ENTITY:StaticObject|0.000000|680.000000|2000.000000|48.000000|2|10|solid
+
+# ====================
+# Section 2: First big gap (x: 2000 - 2600) - 350px gap, needs run-up
+# ====================
+ENTITY:StaticObject|2000.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|2550.000000|560.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 3: Gap pair (x: 2750 - 4000) - two 300px gaps with tight landing
+# ====================
+ENTITY:StaticObject|2850.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3270.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3690.000000|560.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 4: Speed corridor (x: 4000 - 6000) - 380px gap (near max)
+# ====================
+ENTITY:StaticObject|3990.000000|680.000000|800.000000|48.000000|2|10|solid
+ENTITY:StaticObject|5170.000000|560.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 5: Descending run (x: 6000 - 8000) - stepped platforms going down
+# ====================
+ENTITY:StaticObject|5470.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5770.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6070.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6370.000000|680.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 6: Chained jumps (x: 8000 - 10000) - 3 gaps close together
+# ====================
+ENTITY:StaticObject|6770.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|7170.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7390.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7610.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7830.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|8050.000000|560.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 7: Lava speed section (x: 10000 - 13000) - platforms over lava, need speed
+# ====================
+ENTITY:StaticObject|8350.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|8850.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9090.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9330.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9570.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9810.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10050.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10290.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10530.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10770.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|11010.000000|560.000000|140.000000|32.000000|1|10|solid
+ENTITY:StaticObject|11250.000000|560.000000|300.000000|48.000000|2|10|solid
+# Lava below
+ENTITY:StaticObject|8800.000000|680.000000|2800.000000|40.000000|7|10|hazard
+
+# ====================
+# Section 8: Mixed lava/pits (x: 13000 - 16000)
+# ====================
+ENTITY:StaticObject|11550.000000|680.000000|600.000000|48.000000|2|10|solid
+# Lava gap
+ENTITY:StaticObject|12250.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|12150.000000|680.000000|120.000000|40.000000|7|10|hazard
+ENTITY:StaticObject|12200.000000|560.000000|140.000000|32.000000|1|10|solid
+# Pit gap
+ENTITY:StaticObject|12650.000000|680.000000|400.000000|48.000000|2|10|solid
+# Lava gap
+ENTITY:StaticObject|13150.000000|680.000000|400.000000|48.000000|2|10|solid
+ENTITY:StaticObject|13050.000000|680.000000|120.000000|40.000000|7|10|hazard
+ENTITY:StaticObject|13100.000000|560.000000|120.000000|32.000000|1|10|solid
+
+# ====================
+# Section 9: Big gaps to finish (x: 16000 - 18000)
+# ====================
+ENTITY:StaticObject|13550.000000|680.000000|800.000000|48.000000|2|10|solid
+ENTITY:StaticObject|14450.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|14670.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|14990.000000|560.000000|120.000000|32.000000|1|10|solid
+# Lava gap 360px
+ENTITY:StaticObject|15210.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|15690.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|15910.000000|560.000000|120.000000|32.000000|1|10|solid
+ENTITY:StaticObject|16230.000000|560.000000|300.000000|48.000000|2|10|solid
+# Lava below big gaps
+ENTITY:StaticObject|14350.000000|680.000000|2200.000000|40.000000|7|10|hazard
+
+# ====================
+# Section 10: Final stretch (x: 16500 - 18000)
+# ====================
+ENTITY:StaticObject|16630.000000|680.000000|500.000000|48.000000|2|10|solid
+ENTITY:StaticObject|17230.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|17530.000000|680.000000|470.000000|48.000000|2|10|solid
+
+# Level exit to level6
+ENTITY:StaticObject|18000.000000|0.000000|60.000000|720.000000|1|10|exit_east|assets/levels/level6.level|1.000000
+
+# West exit back to level4
+ENTITY:StaticObject|-60.000000|0.000000|60.000000|720.000000|1|10|exit_west|assets/levels/level4.level|1.000000
+
+# Player spawn
+ENTITY:Player|50.000000|620.000000|48.000000|60.000000|0|50|500.000000

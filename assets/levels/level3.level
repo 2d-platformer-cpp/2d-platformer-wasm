@@ -1,0 +1,98 @@
+# Level Data - 2D Platformer Game
+# level3 - Bottomless Pits
+# Teaches: Falling death, committing to jumps with no safety net
+
+levelWidth=14000.000000
+isLeftWallClamped=false
+isRightWallClamped=false
+
+# Background layers
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|4|0|0.100
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|5|4|0.300
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|6|7|0.600
+
+# ====================
+# Section 1: Warm-up floor (x: 0 - 1000)
+# ====================
+ENTITY:StaticObject|0.000000|680.000000|1000.000000|48.000000|2|10|solid
+
+# ====================
+# Section 2: Small holes (x: 1000 - 2200) - first bottomless gaps, 80-100px
+# ====================
+ENTITY:StaticObject|1000.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|1380.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|1760.000000|680.000000|400.000000|48.000000|2|10|solid
+
+# ====================
+# Section 3: Widening gaps (x: 2200 - 4500) 120->200px
+# ====================
+ENTITY:StaticObject|2160.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|2580.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|3000.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|3500.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3800.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|4100.000000|560.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 4: Vertical gaps (x: 4500 - 6000) - platforms at different heights
+# ====================
+ENTITY:StaticObject|4400.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|4700.000000|560.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|4960.000000|440.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5220.000000|440.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5480.000000|560.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5740.000000|680.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 5: Precision platforms (x: 6000 - 7500) - 100px wide, 160-200px gaps
+# ====================
+ENTITY:StaticObject|6040.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|6340.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6540.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6740.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|6940.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7140.000000|560.000000|100.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7340.000000|560.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 6: Staircase ascent (x: 7500 - 9500) - rising platforms, max 280px gap
+# ====================
+ENTITY:StaticObject|7640.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|7940.000000|560.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|8200.000000|440.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|8460.000000|340.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|8740.000000|340.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9000.000000|440.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9260.000000|560.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 7: Descent (x: 9500 - 11500)
+# ====================
+ENTITY:StaticObject|9560.000000|560.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9820.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|10120.000000|560.000000|160.000000|32.000000|1|10|solid
+ENTITY:StaticObject|10380.000000|680.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 8: Challenge gap (x: 11500 - 12500) - 300px gap needs run-up
+# ====================
+ENTITY:StaticObject|10680.000000|680.000000|900.000000|48.000000|2|10|solid
+ENTITY:StaticObject|11880.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|12180.000000|560.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 9: Final run (x: 12500 - 14000)
+# ====================
+ENTITY:StaticObject|12480.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|12780.000000|680.000000|500.000000|48.000000|2|10|solid
+ENTITY:StaticObject|13380.000000|560.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|13680.000000|680.000000|320.000000|48.000000|2|10|solid
+
+# Level exit to level4
+ENTITY:StaticObject|14000.000000|0.000000|60.000000|720.000000|1|10|exit_east|assets/levels/level4.level|1.000000
+
+# West exit back to level2
+ENTITY:StaticObject|-60.000000|0.000000|60.000000|720.000000|1|10|exit_west|assets/levels/level2.level|1.000000
+
+# Player spawn
+ENTITY:Player|50.000000|620.000000|48.000000|60.000000|0|50|500.000000

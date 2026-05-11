@@ -1,0 +1,83 @@
+# Level Data - 2D Platformer Game
+# level1 - First Steps (Tutorial)
+# Teaches: A/D movement, W/Space jump, basic platforming
+
+levelWidth=10000.000000
+isLeftWallClamped=true
+isRightWallClamped=false
+
+# Background layers
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|4|0|0.100
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|5|4|0.300
+ENTITY:BackgroundLayer|0.000000|0.000000|1280.000000|720.000000|6|7|0.600
+
+# ====================
+# Section 1: Spawn zone (x: 0 - 1200) - flat safe ground
+# ====================
+ENTITY:StaticObject|0.000000|680.000000|1200.000000|48.000000|2|10|solid
+
+# ====================
+# Section 2: Step-ups (x: 1200 - 2000) - teach jumping onto ledges
+# ====================
+ENTITY:StaticObject|1200.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|1500.000000|580.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 3: First gap (x: 2000 - 2600) - 100px gap
+# ====================
+ENTITY:StaticObject|1700.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|2100.000000|580.000000|500.000000|48.000000|2|10|solid
+
+# ====================
+# Section 4: Staircase climb (x: 2600 - 3800)
+# ====================
+ENTITY:StaticObject|2600.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|2900.000000|580.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3200.000000|480.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3500.000000|380.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|3800.000000|480.000000|300.000000|48.000000|2|10|solid
+
+# ====================
+# Section 5: Descending platforms (x: 3800 - 5000)
+# ====================
+ENTITY:StaticObject|4100.000000|480.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|4400.000000|580.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|4700.000000|680.000000|500.000000|48.000000|2|10|solid
+
+# ====================
+# Section 6: Gap series (x: 5000 - 6500) - 3 gaps 120-150px
+# ====================
+ENTITY:StaticObject|5200.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|5620.000000|680.000000|300.000000|48.000000|2|10|solid
+ENTITY:StaticObject|6000.000000|680.000000|400.000000|48.000000|2|10|solid
+# Helpful platforms over gaps
+ENTITY:StaticObject|5350.000000|550.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|5750.000000|550.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 7: Elevated path (x: 6500 - 8000)
+# ====================
+ENTITY:StaticObject|6400.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|6700.000000|560.000000|300.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7100.000000|480.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7400.000000|480.000000|300.000000|32.000000|1|10|solid
+ENTITY:StaticObject|7800.000000|580.000000|200.000000|32.000000|1|10|solid
+
+# ====================
+# Section 8: Vertical descent (x: 8000 - 9000)
+# ====================
+ENTITY:StaticObject|8000.000000|580.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|8300.000000|680.000000|700.000000|48.000000|2|10|solid
+
+# ====================
+# Section 9: Final stretch (x: 9000 - 10000)
+# ====================
+ENTITY:StaticObject|9000.000000|680.000000|200.000000|48.000000|2|10|solid
+ENTITY:StaticObject|9300.000000|600.000000|200.000000|32.000000|1|10|solid
+ENTITY:StaticObject|9600.000000|680.000000|400.000000|48.000000|2|10|solid
+
+# Level exit to level2
+ENTITY:StaticObject|10000.000000|0.000000|60.000000|720.000000|1|10|exit_east|assets/levels/level2.level|1.000000
+
+# Player spawn
+ENTITY:Player|50.000000|620.000000|48.000000|60.000000|0|50|500.000000
