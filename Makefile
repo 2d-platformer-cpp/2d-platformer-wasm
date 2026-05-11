@@ -351,14 +351,12 @@ $(WASM_BUILD_DIR)/index.html: $(SRC_FILES) shell.html
 	$(EMCC) -std=c++23 \
 		-I$(INC_DIR) \
 		-s USE_SDL=3 \
-		-s USE_SDL_TTF=3 \
-		-s USE_SDL_IMAGE=3 \
-		-s SDL2_IMAGE_FORMATS='["png"]' \
 		-s INITIAL_MEMORY=67108864 \
 		-s ALLOW_MEMORY_GROWTH=1 \
 		-s FORCE_FILESYSTEM=1 \
 		-s MAX_WEBGL_VERSION=2 \
 		-s ASYNCIFY \
+		-s DISABLE_EXCEPTION_CATCHING=0 \
 		-O2 \
 		--shell-file shell.html \
 		--preload-file assets \

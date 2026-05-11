@@ -7,7 +7,12 @@
 #include <algorithm>
 #include <cmath>
 #include <SDL3/SDL.h>
+
+#ifndef __EMSCRIPTEN__
 #include <SDL3_image/SDL_image.h>
+#else
+#include "stb/stb_image.h"
+#endif
 
 namespace Engine {
 
@@ -24,12 +29,24 @@ Renderer::Renderer(SDL_Window *window) {
 }
 
 bool Renderer::loadTexture(Common::TextureID id, const std::string &path) {
-    /// Loads a PNG from disk via SDL_image and caches it under the given ID.
-    /// @param id    The TextureID to store the texture under.
-    /// @param path  Filesystem path to the PNG file.
-    /// @return true on success, false if the renderer is missing or loading failed.
     if (!m_sdlRenderer) return false;
 
+#ifdef __EMSCRIPTEN__
+    int w, h, channels;
+    unsigned char *pixels = stbi_load(path.c_str(), &w, &h, &channels, 4);
+    if (!pixels) return false;
+
+    SDL_Surface *surface = SDL_CreateSurfaceFrom(w, h, SDL_PIXELFORMAT_RGBA32, pixels, w * 4);
+    if (!surface) { stbi_image_free(pixels); return false; }
+
+    SDL_Texture *texture = SDL_CreateTextureFromSurface(m_sdlRenderer.get(), surface);
+    SDL_DestroySurface(surface);
+    stbi_image_free(pixels);
+
+    if (!texture) return false;
+    m_textureCache[id] = UniqueSDLTexture(texture);
+    return true;
+#else
     auto surface = UniqueSDLSurface(IMG_Load(path.c_str()));
     if (!surface) return false;
 
@@ -38,6 +55,7 @@ bool Renderer::loadTexture(Common::TextureID id, const std::string &path) {
 
     m_textureCache[id] = std::move(texture);
     return true;
+#endif
 }
 
 void Renderer::beginFrame() {

@@ -6,8 +6,11 @@
 
 #include <memory>
 #include <SDL3/SDL.h>
+
+#ifndef __EMSCRIPTEN__
 #include <SDL3_image/SDL_image.h>
 #include <SDL3_ttf/SDL_ttf.h>
+#endif
 
 /// Custom deleter for SDL_Window: calls SDL_DestroyWindow.
 struct SDLWindowDeleter {
@@ -37,16 +40,16 @@ struct SDLSurfaceDeleter {
     void operator()(SDL_Surface *s) const noexcept { if (s) SDL_DestroySurface(s); }
 };
 
-/// Custom deleter for TTF_Font: calls TTF_CloseFont.
-struct TTF_FontDeleter {
-    /// Calls TTF_CloseFont on the given pointer.
-    /// @param f  TTF_Font pointer to close (may be null).
-    void operator()(TTF_Font *f) const noexcept { if (f) TTF_CloseFont(f); }
-};
-
 /// RAII wrappers using std::unique_ptr with the custom deleters above.
 using UniqueSDLWindow   = std::unique_ptr<SDL_Window, SDLWindowDeleter>;
 using UniqueSDLRenderer = std::unique_ptr<SDL_Renderer, SDLRendererDeleter>;
 using UniqueSDLTexture  = std::unique_ptr<SDL_Texture, SDLTextureDeleter>;
 using UniqueSDLSurface  = std::unique_ptr<SDL_Surface, SDLSurfaceDeleter>;
-using UniqueTTFFont     = std::unique_ptr<TTF_Font, TTF_FontDeleter>;
+
+#ifndef __EMSCRIPTEN__
+/// Custom deleter for TTF_Font: calls TTF_CloseFont.
+struct TTF_FontDeleter {
+    void operator()(TTF_Font *f) const noexcept { if (f) TTF_CloseFont(f); }
+};
+using UniqueTTFFont = std::unique_ptr<TTF_Font, TTF_FontDeleter>;
+#endif
