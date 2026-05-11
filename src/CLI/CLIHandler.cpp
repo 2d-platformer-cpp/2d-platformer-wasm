@@ -14,13 +14,8 @@
 
 namespace CLI {
 
+#ifndef __EMSCRIPTEN__
 std::string CLIHandler::getPasswordPrompt(const std::string &prompt) {
-    /// Reads a password from stdin with asterisk masking and no echo.
-    /// Disables terminal echo and canonical mode, reads characters one at
-    /// a time, displays '*' for each, handles backspace (127 or 8) for
-    /// deletion, and restores terminal settings on exit.
-    /// @param prompt  The prompt text to display.
-    /// @return The entered password string.
     std::cout << prompt << std::flush;
     std::string password;
     struct termios oldt, newt;
@@ -46,6 +41,11 @@ std::string CLIHandler::getPasswordPrompt(const std::string &prompt) {
     std::cout << std::endl;
     return password;
 }
+#else
+std::string CLIHandler::getPasswordPrompt(const std::string &) {
+    return "";
+}
+#endif
 
 std::string CLIHandler::getLine(const std::string &prompt) {
     /// Reads a single line of text from stdin.
