@@ -353,11 +353,15 @@ $(WASM_BUILD_DIR)/index.html: $(SRC_FILES) shell.html
 		-s USE_SDL=3 \
 		-s INITIAL_MEMORY=67108864 \
 		-s ALLOW_MEMORY_GROWTH=1 \
+		-s MAXIMUM_MEMORY=512mb \
 		-s FORCE_FILESYSTEM=1 \
 		-s MAX_WEBGL_VERSION=2 \
 		-s ASYNCIFY \
 		-s DISABLE_EXCEPTION_CATCHING=0 \
-		-O2 \
+		-s WASM_ASYNC_COMPILATION=0 \
+		-O3 \
+		--closure 1 \
+		--use-preload-cache \
 		--shell-file shell.html \
 		--preload-file assets \
 		-o $@ \

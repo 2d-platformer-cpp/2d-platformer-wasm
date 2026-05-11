@@ -20,6 +20,9 @@ Renderer::Renderer(SDL_Window *window) {
     /// Creates an SDL_Renderer with VSync enabled and sets logical
     /// presentation to SCREEN_WIDTH x SCREEN_HEIGHT (letterboxed).
     /// @param window  The SDL_Window to render into.
+#ifdef __EMSCRIPTEN__
+    SDL_SetHint(SDL_HINT_RENDER_VSYNC, "1");
+#endif
     SDL_Renderer *r = SDL_CreateRenderer(window, NULL);
     if (!r) return;
     m_sdlRenderer.reset(r);

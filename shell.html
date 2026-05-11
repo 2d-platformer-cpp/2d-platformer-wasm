@@ -21,23 +21,27 @@ canvas{display:block}
 <body>
 <div id="loading"><div class="spinner"></div><div>Loading 2D Platformer...</div></div>
 <div id="error"><h2>Failed to load game</h2><p id="error-msg">An unexpected error occurred.</p></div>
-<div id="game-container">{{{ SCRIPT }}}</div>
-<script>
-Module = typeof Module !== 'undefined' ? Module : {};
-Module.postRun = Module.postRun || [];
-Module.postRun.push(function(){
-  document.getElementById('loading').classList.add('hidden');
-});
-Module.onAbort = function(msg) {
-  document.getElementById('loading').classList.add('hidden');
-  document.getElementById('error-msg').textContent = msg || 'Unknown error';
-  document.getElementById('error').classList.add('visible');
-};
-window.onerror = function(msg) {
-  document.getElementById('loading').classList.add('hidden');
-  document.getElementById('error-msg').textContent = msg || 'Unknown error';
-  document.getElementById('error').classList.add('visible');
-};
-</script>
+<div id="game-container">
+  <canvas id="canvas"></canvas>
+  <script>
+    Module = {
+      canvas: document.getElementById('canvas'),
+      postRun: [function() {
+        document.getElementById('loading').classList.add('hidden');
+      }],
+      onAbort: function(msg) {
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('error-msg').textContent = msg || 'Unknown error';
+        document.getElementById('error').classList.add('visible');
+      }
+    };
+    window.onerror = function(msg) {
+      document.getElementById('loading').classList.add('hidden');
+      document.getElementById('error-msg').textContent = msg || 'Unknown error';
+      document.getElementById('error').classList.add('visible');
+    };
+  </script>
+  {{{ SCRIPT }}}
+</div>
 </body>
 </html>
